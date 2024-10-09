@@ -1,0 +1,4 @@
+1. Enable the jsonapi_content module in your Drupal installation.
+2. Ensure the JSONAPI core module is enabled.
+3. Clear caches using drush cr if necessary.
+4. Access endpoints via /jsonapi/path, /jsonapi/block, and /jsonapi/block-region.

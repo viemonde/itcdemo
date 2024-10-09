@@ -1,0 +1,13 @@
+name: Druact
+type: theme
+description: 'A Drupal 10 theme integrated with React.js.'
+core_version_requirement: ^10
+base theme: stable9
+libraries:
+  - druact/global-styling
+regions:
+  content: Content
+  nav: 'Navigation'
+  logo: 'Logo'
+  language: 'Language'
+  footer: 'Footer'

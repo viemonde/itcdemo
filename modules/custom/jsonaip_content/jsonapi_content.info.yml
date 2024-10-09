@@ -1,0 +1,8 @@
+name: 'JSON:API Content'
+type: module
+description: 'Provides JSON API endpoints to fetch content by path or block.'
+core_version_requirement: ^8 || ^9 || ^10 # Adjust based on the versions of Drupal you are targeting 
+package: Custom
+dependencies:
+- drupal:jsonapi
+version: 1.0

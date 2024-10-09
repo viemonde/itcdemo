@@ -1,0 +1,7 @@
+<div class="paragraph paragraph--type--subbox" style="background-color: {{ content.field_bg_color.0 }};">
+  {% block content %}
+       {# Render the content without field_box_color #}
+       {% set content_copy = content|without('field_bg_color') %}
+       {{ content_copy }}
+  {% endblock %}
+</div>

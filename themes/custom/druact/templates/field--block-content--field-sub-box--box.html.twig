@@ -1,0 +1,5 @@
+<div class="field field--block-subbox field--subbox--box sub-box-content">
+    {% for item in items %}
+      <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+    {% endfor %}
+  </div>

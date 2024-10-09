@@ -1,0 +1,7 @@
+The module implements custom JSON API endpoints.
+Should handle URLs by resolving aliases and permissions.
+Renders blocks and regions by ID, region name and URL.
+Uses standard JSONAPI serialization for outputs.
+Ensure security through permissions checks embedded in the controller logic.
+Utilize core services like renderer when rendering HTML content.
+Follow discoverable routes via the Drupal routing system.

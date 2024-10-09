@@ -1,0 +1,5 @@
+<div class="field field--block-image">
+  {% for item in items %}
+    <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+  {% endfor %}
+</div>

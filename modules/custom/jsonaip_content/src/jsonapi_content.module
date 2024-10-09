@@ -1,0 +1,15 @@
+<?php
+
+use Drupal\Core\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Definition;
+
+/**
+ * Implements hook_help().
+ * Provides help text for the module.
+ */
+function jsonapi_content_help($route_name, ContainerBuilder $container) {
+  switch ($route_name) {
+    case 'help.page.jsonapi_content':
+      return t('Provides JSON API endpoints to fetch content by path or block.');
+  }
+}

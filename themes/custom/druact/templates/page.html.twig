@@ -1,0 +1,28 @@
+{% if jsoncontent_mode is defined and jsoncontent_mode == 1 %}
+  {{ page.content }}
+{% elseif is_react_page is not defined or not is_react_page %}
+  {{ page.content }}
+{% else %}
+<header class="Header">
+{% if page.nav %}
+  <div class="Header_Main">
+  <nav id="nav">
+    {{ page.nav }}
+  </nav>
+  </div>
+{% endif %}
+{% if page.logo %}
+  <div id="logo">
+    {{ page.logo }}
+  </div>
+{% endif %}
+{% if page.language %}
+  <div id="language-switch">
+    {{ page.language }}
+  </div>
+{% endif %}
+</header>
+<div class="Main-Content">
+<div id="root" class="react-root" data-alias="{{alias_path}}" data-lang="{{lang_code}}"></div>
+</div>
+{% endif %}

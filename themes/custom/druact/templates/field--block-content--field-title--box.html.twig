@@ -1,0 +1,5 @@
+  <h2 class="field field--block-content field--title--box">
+    {% for item in items %}
+      <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+    {% endfor %}
+  </h2>

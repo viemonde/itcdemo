@@ -1,0 +1,29 @@
+jsonapi_content.path:
+  path: '/jsonapi/content/path'
+  defaults:
+    _controller: '\Drupal\jsonapi_content\Controller\JsonApiContentController::handlePath'
+    _title: 'JSONAPI Path Handler'
+  requirements:
+    _permission: 'access content' # Adjust permissions as needed
+  options:
+    _admin_route: FALSE
+
+jsonapi_content.block:
+  path: '/jsonapi/content/block'
+  defaults:
+    _controller: '\Drupal\jsonapi_content\Controller\JsonApiContentController::handleBlock'
+    _title: 'JSONAPI Block Handler'
+  requirements:
+    _permission: 'access content' # Adjust permissions as needed
+  options:
+    _admin_route: FALSE
+
+jsonapi_content.region_block:
+  path: '/jsonapi/content/block-region'
+  defaults:
+    _controller: '\Drupal\jsonapi_content\Controller\JsonApiContentController::handleRegionBlock'
+    _title: 'JSONAPI Region Block Handler'
+  requirements:
+    _permission: 'access content' # Adjust permissions as needed
+  options:
+    _admin_route: FALSE

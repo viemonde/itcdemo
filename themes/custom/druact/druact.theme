@@ -1,0 +1,49 @@
+<?php
+/**
+ * Implements hook_preprocess_HOOK() for page templates.
+ *
+ * This allows you to modify the variables before they are passed to the page template.
+ */
+function druact_preprocess_page(array &$variables) {
+  $request = \Drupal::service('request_stack')->getCurrentRequest();
+  $current_path = $request->getPathInfo();
+  $alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+  $variables['current_path'] = $current_path;
+  $variables['alias_path'] = $alias;
+  $variables['is_react_page'] = !preg_match('#^/(user|admin)\b#', $current_path);
+  /*foreach ($variables as $key => $vale) {
+    echo '<br>--' . $key;
+  }  */
+  $current_language = \Drupal::languageManager()->getCurrentLanguage();
+  $language_code = $current_language->getId();
+  $variables['lang_code'] = ($language_code === 'en') ? '' : $language_code;
+  // Remove the language prefix from the alias path if it exists.
+  if ($language_code !== 'en' && strpos($alias, '/' . $language_code) === 0) {
+    $variables['alias_path'] = substr($alias, strlen($language_code) + 1);
+  }
+}
+
+/**
+ * Implements hook_html_head_alter().
+ *
+ * This allows you to add custom metadata or manipulate the <head> section of the page.
+ */
+function druact_html_head_alter(&$head_elements) {
+  // Example: Add a meta tag for viewport settings.
+  $head_elements['druact_viewport'] = [
+    '#tag' => 'meta',
+    '#attributes' => [
+      'name' => 'viewport',
+      'content' => 'width=device-width, initial-scale=1.0',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function druact_preprocess_field(array &$variables) {
+  // Add a custom CSS class to the field wrapper
+  $field_name = $variables['element']['#field_name'];
+  $variables['attributes']['class'][] = 'field--' . $field_name;
+}

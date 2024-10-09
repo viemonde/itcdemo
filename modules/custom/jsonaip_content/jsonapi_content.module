@@ -1,0 +1,22 @@
+<?php
+/**
+ * Implements hook_preprocess_html().
+ */
+function jsonapi_content_preprocess_html(array &$variables) {
+  $request = \Drupal::request();
+  if ($request->query->get('jsoncontent') == 1) {
+    $variables['jsoncontent_mode'] = 1;
+  }
+}
+function jsonapi_content_preprocess_page(array &$variables) {
+  $request = \Drupal::request();
+  if ($request->query->get('jsoncontent') == 1) {
+    $variables['jsoncontent_mode'] = 1;
+  }
+}
+function jsonapi_preprocess_breadcrumb(&$variables) {
+  $request = \Drupal::request();
+  if ($request->query->get('jsoncontent') == 1) {
+     $variables['breadcrumb'] = [];
+  }
+}
